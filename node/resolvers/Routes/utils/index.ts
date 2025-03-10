@@ -47,6 +47,10 @@ export const QUERIES = {
           id
           name
         }
+         collections{
+          id
+          name
+        }
       }
     }`,
   getMarketingTags: `

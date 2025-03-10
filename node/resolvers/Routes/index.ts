@@ -299,6 +299,7 @@ export const Routes = {
       }
     }
 
+    console.log("Organization Response:",organizationResponse);
     let organization = organizationResponse?.data?.getOrganizationById
 
     // prevent login if org is inactive
@@ -361,7 +362,16 @@ export const Routes = {
 
     let facets = [] as any
 
-    if (organization.collections?.length) {
+    console.log(costCenterResponse);
+    if (costCenterResponse) {
+      // add logic
+      const collections = organization.collections.map(
+        (collection: any) => `productClusterIds=${collection.id}`
+      )
+
+      facets = [...facets, ...collections]
+    }
+    else if (organization.collections?.length) {
       const collections = organization.collections.map(
         (collection: any) => `productClusterIds=${collection.id}`
       )
