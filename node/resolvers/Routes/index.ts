@@ -361,7 +361,16 @@ export const Routes = {
 
     let facets = [] as any
 
-    if (organization.collections?.length) {
+    let costCenter = costCenterResponse?.data?.getCostCenterById;
+    console.log("costCenterResponse", JSON.stringify(costCenter, null, 2));
+
+    if (costCenter.collections?.length) {
+      const collections = costCenter.collections.map(
+        (collection: any) => `productClusterIds=${collection.id}`
+      )
+
+      facets = [...facets, ...collections]
+    }else if (organization.collections?.length) {
       const collections = organization.collections.map(
         (collection: any) => `productClusterIds=${collection.id}`
       )
