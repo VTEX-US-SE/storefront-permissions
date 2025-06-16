@@ -219,5 +219,9 @@ export interface GetCostCenterType {
       id: string | null
       name: string | null
     }
+    collections: {
+      id: string | null
+      name: string | null
+    }
   }
 }
