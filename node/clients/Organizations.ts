@@ -11,7 +11,7 @@ import type {
 const getPersistedQuery = () => {
   return {
     persistedQuery: {
-      provider: 'vtex.b2b-organizations-graphql@0.x',
+      provider: 'vtex.b2b-organizations-graphql@1.x',
       sender: 'vtex.storefront-permissions@1.x',
     },
   }
@@ -19,7 +19,7 @@ const getPersistedQuery = () => {
 
 export class OrganizationsGraphQLClient extends AppGraphQLClient {
   constructor(ctx: IOContext, options?: InstanceOptions) {
-    super('vtex.b2b-organizations-graphql@0.x', ctx, options)
+    super('vtex.b2b-organizations-graphql@1.x', ctx, options)
   }
 
   public getOrganizationById = async (orgId: string): Promise<unknown> => {
